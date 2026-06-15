@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>長野県高校入試ガイド 令和8年度版</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;700&display=swap');
+  :root{--ink:#1a1a2e;--paper:#f7f5f0;--accent:#2d6a4f;--accent2:#74c69d;--pub:#1b4332;--priv:#6a4c93;--pub-light:#d8f3dc;--priv-light:#e9d8fd;--rule:#c8c0b0;--mid:#4a4a5a;--gold:#b5883a;--warn:#e76f51;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans JP',sans-serif;background:var(--paper);color:var(--ink);font-size:14px;line-height:1.7;}
+  header{background:var(--ink);color:#fff;padding:28px 20px 22px;position:relative;overflow:hidden;}
+  header::before{content:'';position:absolute;left:0;top:0;width:6px;height:100%;background:linear-gradient(180deg,var(--accent2),var(--priv));}
+  .header-inner{max-width:900px;margin:0 auto;}
+  .header-eyebrow{font-size:10px;letter-spacing:3px;color:var(--accent2);font-weight:500;text-transform:uppercase;margin-bottom:8px;}
+  header h1{font-family:'Noto Serif JP',serif;font-size:clamp(20px,4.5vw,34px);font-weight:700;line-height:1.3;margin-bottom:6px;}
+  .header-sub{font-size:11px;color:#a0a0b8;border-top:1px solid #333;margin-top:14px;padding-top:10px;display:flex;gap:16px;flex-wrap:wrap;}
+  .tab-nav{background:#fff;border-bottom:2px solid var(--rule);position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+  .tab-list{max-width:900px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none;}
+  .tab-list::-webkit-scrollbar{display:none;}
+  .tab-btn{flex-shrink:0;padding:13px 16px;border:none;background:none;font-family:'Noto Sans JP',sans-serif;font-size:12px;font-weight:500;color:var(--mid);cursor:pointer;border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap;}
+  .tab-btn:hover{color:var(--ink);}
+  .tab-btn.active{color:var(--ink);border-bottom-color:var(--accent);font-weight:700;}
+  main{max-width:900px;margin:0 auto;padding:20px 14px 60px;}
+  .section{display:none;}
+  .section.active{display:block;}
+  .sec-title{font-family:'Noto Serif JP',serif;font-size:20px;font-weight:700;color:var(--ink);border-left:5px solid var(--accent);padding-left:12px;margin-bottom:18px;}
+  .sec-title.priv{border-color:var(--priv);}
+  .sec-title.nayami{border-color:var(--gold);}
+  h3.sub{font-size:14px;font-weight:700;margin:22px 0 12px;border-bottom:2px solid var(--rule);padding-bottom:7px;}
+  /* info cards */
+  .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;}
+  @media(max-width:540px){.info-grid{grid-template-columns:1fr;}}
+  .info-card{background:#fff;border-radius:10px;padding:14px;border:1px solid var(--rule);}
+  .info-card-title{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mid);margin-bottom:8px;border-bottom:1px solid var(--rule);padding-bottom:6px;}
+  .info-row{display:flex;justify-content:space-between;align-items:baseline;padding:4px 0;border-bottom:1px dotted var(--rule);font-size:12px;}
+  .info-row:last-child{border-bottom:none;}
+  .info-label{color:var(--mid);}
+  .info-val{font-weight:700;color:var(--ink);}
+  /* flow */
+  .flow-wrap{display:grid;gap:0;margin-bottom:24px;}
+  .flow-item{display:grid;grid-template-columns:56px 1fr;gap:0;}
+  .flow-step{display:flex;flex-direction:column;align-items:center;}
+  .flow-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;color:#fff;flex-shrink:0;}
+  .fn-pub{background:var(--pub);} .fn-priv{background:var(--priv);}
+  .flow-line{width:2px;flex:1;background:var(--rule);margin:3px 0;min-height:16px;}
+  .flow-item:last-child .flow-line{display:none;}
+  .flow-body{padding:0 0 18px 10px;}
+  .flow-month{font-size:10px;font-weight:700;letter-spacing:1px;color:var(--mid);margin-bottom:3px;}
+  .flow-title{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+  .flow-desc{font-size:12px;color:var(--mid);line-height:1.6;}
+  .flow-desc ul{padding-left:14px;}
+  .flow-desc li{margin-bottom:2px;}
+  /* notice */
+  .notice{background:#fff8e7;border:1px solid #e9c46a;border-radius:8px;padding:12px 14px;font-size:12px;line-height:1.6;margin-bottom:16px;color:var(--ink);}
+  .notice strong{color:var(--gold);}
+  .notice-blue{background:#e8f4fd;border:1px solid #90caf9;border-radius:8px;padding:12px 14px;font-size:12px;line-height:1.6;margin-bottom:16px;}
+  .notice-green{background:#e8f5e9;border:1px solid #81c784;border-radius:8px;padding:12px 14px;font-size:12px;line-height:1.6;margin-bottom:16px;}
+  /* rank */
+  .rank-header{background:var(--ink);color:#fff;border-radius:10px 10px 0 0;padding:10px 16px;display:flex;align-items:center;gap:12px;margin-top:20px;}
+  .rank-score{font-family:'Noto Serif JP',serif;font-size:26px;font-weight:700;color:var(--accent2);}
+  .rank-score-sub{font-size:10px;color:#aaa;margin-top:1px;}
+  .rank-devlabel{font-size:11px;color:#aaa;}
+  .rank-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--rule);border-top:none;border-radius:0 0 10px 10px;overflow:hidden;margin-bottom:6px;}
+  .rank-table th{font-size:10px;font-weight:700;letter-spacing:1px;color:var(--mid);background:#f0ece4;padding:7px 10px;text-align:left;border-bottom:1px solid var(--rule);}
+  .rank-table td{padding:9px 10px;font-size:12px;border-bottom:1px solid #f0ece4;vertical-align:middle;}
+  .rank-table tr:last-child td{border-bottom:none;}
+  .rank-table tr:hover td{background:#fafaf7;}
+  .school-name{font-weight:700;color:var(--ink);}
+  .school-course{font-size:10px;color:var(--mid);}
+  .devnum{font-weight:900;font-size:15px;font-family:'Noto Serif JP',serif;}
+  .devnum.pub{color:var(--pub);} .devnum.priv{color:var(--priv);}
+  .score-bar-wrap{display:flex;align-items:center;gap:6px;}
+  .score-num{font-weight:700;width:42px;text-align:right;font-size:11px;}
+  .score-bar{height:5px;border-radius:3px;background:linear-gradient(90deg,var(--accent2),var(--accent));}
+  .score-bar.priv-bar{background:linear-gradient(90deg,#c084fc,var(--priv));}
+  .zenki-tag{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700;background:#e8f4e8;color:var(--pub);}
+  .only-tag{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700;background:#ffeedd;color:var(--warn);}
+  .area-label{font-size:10px;font-weight:700;letter-spacing:1px;padding:2px 7px;border-radius:4px;color:#fff;}
+  .area-hoku{background:#2d6a4f;} .area-tou{background:#1a659e;} .area-chu{background:#7b2d8b;} .area-priv{background:#6a4c93;}
+  .divider-band{background:var(--rule);height:2px;margin:28px 0 20px;border-radius:1px;}
+  /* tables */
+  table.sum{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--rule);border-radius:8px;overflow:hidden;font-size:12px;margin-bottom:18px;}
+  table.sum th{background:var(--ink);color:#fff;padding:9px 10px;text-align:left;font-size:11px;}
+  table.sum td{padding:8px 10px;border-bottom:1px solid #f0ece4;vertical-align:middle;}
+  table.sum tr:last-child td{border-bottom:none;}
+  table.sum tr:nth-child(even) td{background:#fafaf7;}
+  /* 内申 */
+  .naishin-box{background:#fff;border:1px solid var(--rule);border-radius:10px;padding:16px;margin-bottom:16px;}
+  .naishin-box h4{font-size:13px;font-weight:700;margin-bottom:10px;color:var(--ink);}
+  .domain-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;}
+  @media(max-width:480px){.domain-grid{grid-template-columns:1fr;}}
+  .domain-card{background:#f7f5f0;border-radius:8px;padding:10px 12px;border-left:3px solid var(--accent);}
+  .domain-card.warn-card{border-left-color:var(--warn);}
+  .domain-card.gold-card{border-left-color:var(--gold);}
+  .domain-title{font-size:11px;font-weight:700;color:var(--mid);margin-bottom:4px;}
+  .domain-body{font-size:12px;color:var(--ink);}
+  /* 須坂 */
+  .suzaka-map{background:#fff;border:2px solid #1a659e;border-radius:10px;padding:16px;margin-bottom:16px;}
+  .suzaka-map h4{font-size:13px;font-weight:700;margin-bottom:10px;color:#1a659e;}
+  .sc-row{display:flex;align-items:baseline;justify-content:space-between;padding:6px 0;border-bottom:1px dotted var(--rule);font-size:12px;}
+  .sc-row:last-child{border-bottom:none;}
+  .sc-name{font-weight:700;}
+  .sc-km{color:var(--mid);font-size:11px;}
+  .sc-cond{font-size:10px;color:#fff;padding:2px 7px;border-radius:4px;font-weight:700;}
+  .cond-ok{background:#2d6a4f;} .cond-adj{background:#1a659e;} .cond-priv{background:#6a4c93;}
+  /* 進路 思考 */
+  .think-card{background:#fff;border:1px solid var(--rule);border-radius:10px;padding:16px;margin-bottom:14px;}
+  .think-icon{font-size:22px;margin-bottom:8px;}
+  .think-title{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:6px;}
+  .think-body{font-size:12px;color:var(--mid);line-height:1.7;}
+  .think-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
+  @media(max-width:540px){.think-grid{grid-template-columns:1fr;}}
+  /* Simulator */
+  .sim-wrap{background:#fff;border:2px solid var(--accent);border-radius:12px;padding:20px;margin-bottom:20px;}
+  .sim-title{font-size:16px;font-weight:700;margin-bottom:4px;color:var(--ink);}
+  .sim-sub{font-size:12px;color:var(--mid);margin-bottom:18px;}
+  .score-inputs{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:16px;}
+  @media(max-width:480px){.score-inputs{grid-template-columns:1fr 1fr;}}
+  .score-inp-wrap label{display:block;font-size:10px;font-weight:700;color:var(--mid);margin-bottom:4px;text-align:center;}
+  .score-inp-wrap input{width:100%;padding:8px 6px;text-align:center;border:1.5px solid var(--rule);border-radius:6px;font-size:16px;font-weight:700;font-family:'Noto Sans JP',sans-serif;color:var(--ink);background:#fafaf7;}
+  .score-inp-wrap input:focus{outline:none;border-color:var(--accent);}
+  .pref-section{margin-bottom:16px;}
+  .pref-title{font-size:12px;font-weight:700;color:var(--mid);margin-bottom:8px;}
+  .pref-grid{display:flex;flex-wrap:wrap;gap:7px;}
+  .pref-chip{padding:6px 12px;border-radius:20px;border:1.5px solid var(--rule);background:#fafaf7;font-size:11px;font-weight:500;color:var(--mid);cursor:pointer;transition:all .15s;user-select:none;}
+  .pref-chip:hover{border-color:var(--accent);color:var(--accent);}
+  .pref-chip.selected{background:var(--pub-light);border-color:var(--pub);color:var(--pub);font-weight:700;}
+  .naishin-inp-wrap{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+  .naishin-inp-wrap label{font-size:12px;font-weight:700;color:var(--mid);white-space:nowrap;}
+  .naishin-inp-wrap input{width:80px;padding:8px 6px;text-align:center;border:1.5px solid var(--rule);border-radius:6px;font-size:16px;font-weight:700;font-family:'Noto Sans JP',sans-serif;color:var(--ink);background:#fafaf7;}
+  .naishin-inp-wrap input:focus{outline:none;border-color:var(--accent);}
+  .sim-btn{width:100%;padding:14px;background:var(--pub);color:#fff;border:none;border-radius:8px;font-family:'Noto Sans JP',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:background .2s;}
+  .sim-btn:hover{background:#145a32;}
+  .result-wrap{margin-top:18px;}
+  .result-title{font-size:13px;font-weight:700;color:var(--mid);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--rule);}
+  .result-card{background:#fff;border:1px solid var(--rule);border-radius:10px;padding:14px 16px;margin-bottom:10px;display:flex;gap:12px;align-items:flex-start;}
+  .result-rank-badge{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;color:#fff;flex-shrink:0;}
+  .rank-1{background:#b5883a;} .rank-2{background:#888;} .rank-3{background:#8d6534;}
+  .result-body{flex:1;}
+  .result-school-name{font-size:15px;font-weight:700;color:var(--ink);}
+  .result-school-course{font-size:11px;color:var(--mid);}
+  .result-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;}
+  .result-tag{font-size:10px;padding:2px 8px;border-radius:4px;font-weight:700;}
+  .rt-pub{background:var(--pub-light);color:var(--pub);}
+  .rt-priv{background:var(--priv-light);color:var(--priv);}
+  .rt-aim{background:#fff3e0;color:#e65100;}
+  .rt-reach{background:#e8f5e9;color:#2e7d32;}
+  .result-comment{font-size:11px;color:var(--mid);margin-top:6px;line-height:1.6;}
+  .result-dev{font-family:'Noto Serif JP',serif;font-weight:900;font-size:20px;color:var(--pub);}
+  .result-dev.pr{color:var(--priv);}
+  .score-display{font-size:11px;color:var(--mid);font-weight:700;}
+  .error-msg{color:var(--warn);font-size:13px;text-align:center;padding:16px;font-weight:700;}
+  .total-score-disp{text-align:center;padding:10px;background:#f0f7f0;border-radius:8px;margin-bottom:14px;font-size:13px;color:var(--mid);}
+  .total-score-disp span{font-size:22px;font-weight:900;color:var(--pub);font-family:'Noto Serif JP',serif;}
+  .footnote{font-size:11px;color:var(--mid);border-top:1px solid var(--rule);padding-top:14px;margin-top:28px;line-height:1.8;}
+  .footnote a{color:var(--accent);}
+  /* Naishin detail */
+  .soukan-vis{background:#fff;border:1px solid var(--rule);border-radius:10px;padding:16px;margin-bottom:16px;}
+  .soukan-vis h4{font-size:13px;font-weight:700;margin-bottom:12px;}
+  .grid-area{position:relative;width:100%;max-width:340px;height:220px;margin:0 auto 12px;border:2px solid var(--ink);border-radius:4px;background:#f9f9f9;}
+  .grid-label-x{font-size:9px;text-align:center;color:var(--mid);margin-top:4px;}
+  .grid-label-y{position:absolute;left:-28px;top:50%;transform:translateY(-50%) rotate(-90deg);font-size:9px;color:var(--mid);white-space:nowrap;}
+  .quad{position:absolute;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;}
+  .q1{top:0;right:0;width:50%;height:50%;background:#d8f3dc;color:#1b4332;}
+  .q2{top:0;left:0;width:50%;height:50%;background:#fff3e0;color:#e65100;}
+  .q3{bottom:0;right:0;width:50%;height:50%;background:#fff3e0;color:#e65100;}
+  .q4{bottom:0;left:0;width:50%;height:50%;background:#fce4e4;color:#c62828;}
+  .grid-axis-line{position:absolute;background:var(--ink);}
+  .hline{width:100%;height:2px;top:50%;left:0;}
+  .vline{height:100%;width:2px;left:50%;top:0;}
+  .priv-school-card{background:#fff;border:1px solid var(--rule);border-left:4px solid var(--priv);border-radius:8px;padding:12px 14px;margin-bottom:10px;}
+  .priv-school-card h4{font-size:13px;font-weight:700;margin-bottom:7px;color:var(--ink);}
+  .priv-course-row{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px dotted var(--rule);font-size:11px;}
+  .priv-course-row:last-child{border-bottom:none;}
+  .priv-course-name{color:var(--mid);}
+  .priv-course-dev{font-weight:700;color:var(--priv);}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px;}
+  @media(max-width:580px){.two-col{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <p class="header-eyebrow">Nagano High School Entrance Guide</p>
+    <h1>長野県高校入試ガイド<br>令和8年度（2026）版</h1>
+    <div class="header-sub">
+      <span>📍 対象：北信・東信・中信</span>
+      <span>📅 更新：2026年6月</span>
+      <span>※偏差値・合格ラインは参考値</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tab-nav">
+  <div class="tab-list">
+    <button class="tab-btn active" onclick="showTab('pub')">🏫 公立入試の仕組み</button>
+    <button class="tab-btn" onclick="showTab('naishin')">📋 内申点の仕組み</button>
+    <button class="tab-btn" onclick="showTab('suzaka')">📍 須坂市から受験</button>
+    <button class="tab-btn" onclick="showTab('priv')">🎓 私立入試の仕組み</button>
+    <button class="tab-btn" onclick="showTab('rank')">📊 偏差値・得点別一覧</button>
+    <button class="tab-btn" onclick="showTab('think')">🧭 進路の選び方</button>
+    <button class="tab-btn" onclick="showTab('sim')">🎯 おすすめ高校シミュ</button>
+  </div>
+</nav>
+
+<main>
+
+<!-- ═══════════════ 公立入試 ═══════════════ -->
+<section id="pub" class="section active">
+  <h2 class="sec-title">公立高校入試の仕組み</h2>
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-card-title">前期選抜（2月）</div>
+      <div class="info-row"><span class="info-label">学力検査</span><span class="info-val">5教科 各40点＝200点</span></div>
+      <div class="info-row"><span class="info-label">内申点</span><span class="info-val">調査書（活用は各校設定）</span></div>
+      <div class="info-row"><span class="info-label">その他</span><span class="info-val">面接・作文・小論文など</span></div>
+      <div class="info-row"><span class="info-label">推薦書</span><span class="info-val">不要（自己推薦型）</span></div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-title">後期選抜（3月）</div>
+      <div class="info-row"><span class="info-label">学力検査</span><span class="info-val">5教科 各100点＝500点</span></div>
+      <div class="info-row"><span class="info-label">内申点</span><span class="info-val">中3のみ 9教科5段階＝45点</span></div>
+      <div class="info-row"><span class="info-label">判定方法</span><span class="info-val">相関図（内申×学力）4領域</span></div>
+      <div class="info-row"><span class="info-label">平均点目安</span><span class="info-val">約301点（2025年度）</span></div>
+    </div>
+  </div>
+  <div class="notice">
+    <strong>⚠ 通学区制度</strong>：長野県は4学区制。原則として自学区内の公立高校に出願。令和6年度以降は県内全域の高校へ出願可能となった。私立高校は学区制限なし。
+  </div>
+  <h3 class="sub">📅 公立入試 年間スケジュール</h3>
+  <div class="flow-wrap">
+    <div class="flow-item"><div class="flow-step"><div class="flow-num fn-pub">1</div><div class="flow-line"></div></div><div class="flow-body"><div class="flow-month">10〜11月</div><div class="flow-title">志願予定数調査・募集定員発表</div><div class="flow-desc">県教委が第1回・第2回の志願予定数調査を実施。各高校の募集定員が正式発表。倍率予測の参考データ。</div></div></div>
+    <div class="flow-item"><div class="flow-step"><div class="flow-num fn-pub">2</div><div class="flow-line"></div></div><div class="flow-body"><div class="flow-month">1月下旬〜2月上旬</div><div class="flow-title">前期選抜 出願・学力検査</div><div class="flow-desc"><ul><li>インターネット出願（2月初旬締切）</li><li>学力検査：5教科 各40点満点＝200点</li><li>面接・作文・小論文・実技（学校により異なる）</li><li>評価比重は事前に各校が公表</li></ul></div></div></div>
+    <div class="flow-item"><div class="flow-step"><div class="flow-num fn-pub">3</div><div class="flow-line"></div></div><div class="flow-body"><div class="flow-month">2月中旬</div><div class="flow-title">前期合格発表・後期募集人員確定</div><div class="flow-desc">前期合格者が確定。前期のない高校（長野・松本深志など）は後期一本勝負。後期の募集人員もこの時点で確定。</div></div></div>
+    <div class="flow-item"><div class="flow-step"><div class="flow-num fn-pub">4</div><div class="flow-line"></div></div><div class="flow-body"><div class="flow-month">2月下旬〜3月上旬</div><div class="flow-title">後期選抜 出願・志望変更</div><div class="flow-desc"><ul><li>後期出願締切・志願者数公表（2/27頃）</li><li>志望変更期間（3月初旬）</li><li>確定志願者数発表（3/5頃）</li></ul></div></div></div>
+    <div class="flow-item"><div class="flow-step"><div class="flow-num fn-pub">5</div><div class="flow-line"></div></div><div class="flow-body"><div class="flow-month">3月10〜11日</div><div class="flow-title">後期選抜 学力検査</div><div class="flow-desc"><ul><li>5教科 各100点満点＝500点満点</li><li>基礎問題＋応用問題（記述・論述多め）</li><li>試験当日に正答例公表</li></ul></div></div></div>
+    <div class="flow-item"><div class="flow-step"><div class="flow-num fn-pub">6</div><div class="flow-line"></div></div><div class="flow-body"><div class="flow-month">3月19〜21日</div><div class="flow-title">後期選抜 合格発表</div><div class="flow-desc">入学予定者数発表。不合格の場合は再募集（3月下旬）に出願可能。合格後、入学手続きへ。</div></div></div>
+  </div>
+  <h3 class="sub">📌 前期 vs 後期 比較</h3>
+  <table class="sum"><thead><tr><th style="width:28%">項目</th><th>前期選抜</th><th>後期選抜</th></tr></thead><tbody>
+    <tr><td><strong>学力検査</strong></td><td>5教科 200点満点（各40点）</td><td>5教科 500点満点（各100点）</td></tr>
+    <tr><td><strong>問題難易度</strong></td><td>基礎・基本中心</td><td>応用・記述多め</td></tr>
+    <tr><td><strong>内申点</strong></td><td>各校設定（比重大きい場合も）</td><td>中3の9教科 45点満点</td></tr>
+    <tr><td><strong>推薦書</strong></td><td>不要（自己推薦型）</td><td>—</td></tr>
+    <tr><td><strong>最難関校</strong></td><td>長野・松本深志は<span style="color:var(--warn);font-weight:700;">前期なし</span></td><td>全公立校で実施</td></tr>
+    <tr><td><strong>2025年平均点</strong></td><td>—</td><td>約301点（前年比UP）</td></tr>
+  </tbody></table>
+</section>
+
+<!-- ═══════════════ 内申点 ═══════════════ -->
+<section id="naishin" class="section">
+  <h2 class="sec-title">内申点の仕組みと相関図</h2>
+
+  <h3 class="sub">📐 内申点の計算方法</h3>
+  <div class="naishin-box">
+    <h4>中3の9教科 × 5段階評定 ＝ 最大45点</h4>
+    <table class="sum"><thead><tr><th>5教科（学力検査あり）</th><th>実技4教科</th><th>合計</th></tr></thead><tbody>
+      <tr><td>国語・数学・理科・社会・英語<br><span style="font-size:11px;color:var(--mid);">各 1〜5段階</span></td><td>音楽・美術・保健体育・技術家庭<br><span style="font-size:11px;color:var(--mid);">各 1〜5段階</span></td><td><strong>9教科 × 5 ＝ 最大45点</strong></td></tr>
+    </tbody></table>
+    <div class="notice-blue">
+      <strong>📌 使用されるのは中3のみ</strong>：後期選抜で合否判定に使われる内申点は中学3年生の評定のみ。1・2年の成績も調査書に記載されるが、相関図判定には使用されない（ただし調査書の「所見」欄には記録が残る）。
+    </div>
+  </div>
+
+  <h3 class="sub">🎯 相関図による合否判定（後期選抜）</h3>
+  <div class="soukan-vis">
+    <h4>相関図の4領域と合否の関係</h4>
+    <div class="grid-area">
+      <div class="grid-label-y">内申点（45点満点）▲</div>
+      <div class="quad q1">Ⅰ領域<br>原則合格</div>
+      <div class="quad q2">Ⅱ領域<br>学力高・内申低<br>→ケースバイケース</div>
+      <div class="quad q3">Ⅲ領域<br>内申高・学力低<br>→ケースバイケース</div>
+      <div class="quad q4">Ⅳ領域<br>原則不合格</div>
+      <div class="grid-axis-line hline"></div>
+      <div class="grid-axis-line vline"></div>
+    </div>
+    <div class="grid-label-x">学力検査点（500点満点）▶</div>
+    <div style="font-size:11px;color:var(--mid);margin-top:8px;line-height:1.6;">
+      ①縦軸：内申点（45点満点）、横軸：学力検査点（500点満点）で各受験者を点でプロット<br>
+      ②高校が設定した「基準人員」に基づいて区分線を引き、4つの領域に分割<br>
+      ③Ⅰ領域（右上）が原則合格、Ⅳ領域（左下）が原則不合格<br>
+      ④Ⅱ・Ⅲ領域は面接・調査書の記載内容なども含め総合判定<br>
+      ⑤区分線の位置は倍率などにより毎年変動する
+    </div>
+  </div>
+
+  <h3 class="sub">📈 内申点が合否に与える影響</h3>
+  <div class="domain-grid">
+    <div class="domain-card">
+      <div class="domain-title">✅ 内申点が高いと有利な状況</div>
+      <div class="domain-body">・当日の試験が少し失敗しても補える<br>・Ⅲ領域（内申高・学力やや低）でも合格の可能性<br>・偏差値が高い高校ほど内申加点割合は低め</div>
+    </div>
+    <div class="domain-card warn-card">
+      <div class="domain-title">⚠️ 内申点が低い時の対策</div>
+      <div class="domain-body">・学力検査で大きく上回る必要がある<br>・Ⅱ領域（学力高・内申低）でも合格可能なケースあり<br>・1点の差が命取りになりやすい</div>
+    </div>
+    <div class="domain-card gold-card">
+      <div class="domain-title">📝 調査書に記載される項目</div>
+      <div class="domain-body">・各教科の評定（1〜3年分）<br>・特別活動の記録（部活・生徒会・ボランティア）<br>・総合的な学習の時間の記録<br>・出欠の記録、総合所見・特記事項<br>・資格・検定（英検・漢検など）</div>
+    </div>
+    <div class="domain-card">
+      <div class="domain-title">🏆 評定に影響するもの</div>
+      <div class="domain-body">・定期テストの点数（最重要）<br>・提出物の提出率・質<br>・授業態度・積極的な発言<br>・課題・作品の完成度<br>・中3の1〜2学期が基本的に確定値</div>
+    </div>
+  </div>
+
+  <h3 class="sub">💡 内申点の「加点的」扱いについて</h3>
+  <div class="notice">
+    <strong>⚠ 重要：「加点・減点」の制度ではない</strong><br>
+    長野県の公立高校入試に英検・漢検などの「点数加算」制度は公式には存在しない。ただし以下のものが調査書の<strong>「特記事項」</strong>や<strong>「総合所見」</strong>に記載され、Ⅱ・Ⅲ領域の境界線上での<strong>総合的判断の材料</strong>になりうる。
+  </div>
+  <table class="sum"><thead><tr><th>項目</th><th>調査書での扱い</th><th>合否への影響度</th></tr></thead><tbody>
+    <tr><td><strong>英検・漢検・数検</strong></td><td>特記事項に記載（準2級以上が目安）</td><td>◎ 境界線上では有利に働く</td></tr>
+    <tr><td><strong>部活動の成績</strong></td><td>特別活動の記録・特記事項</td><td>○ 県大会以上は特に有効</td></tr>
+    <tr><td><strong>生徒会活動・委員会</strong></td><td>特別活動の記録</td><td>△ 副次的な評価要素</td></tr>
+    <tr><td><strong>ボランティア活動</strong></td><td>特別活動の記録・総合所見</td><td>△ 「主体性」の評価材料</td></tr>
+    <tr><td><strong>表彰・受賞歴</strong></td><td>特記事項</td><td>○ 全国・県レベルは強い</td></tr>
+    <tr><td><strong>不登校・欠席日数</strong></td><td>出欠の記録</td><td>▼ 年間30日以上は注意</td></tr>
+    <tr><td><strong>提出物の未提出</strong></td><td>評定に直接影響</td><td>▼ 評定が下がる可能性</td></tr>
+  </tbody></table>
+  <div class="notice-green">
+    <strong>💡 結論</strong>：評定（内申点）は9教科の定期テスト・授業態度・提出物で決まる。英検などは「プラスアルファ」として記録されるが、境界線上の受験生には有効。<strong>まず評定を上げることが最優先</strong>。偏差値が高い進学校ほど当日点の比重が重い。
+  </div>
+</section>
+
+<!-- ═══════════════ 須坂市 ═══════════════ -->
+<section id="suzaka" class="section">
+  <h2 class="sec-title" style="border-color:#1a659e;">須坂市から受験する場合</h2>
+
+  <div class="notice-blue">
+    <strong>📍 須坂市は第1通学区（北信地区）</strong><br>
+    令和6年度より長野県の公立高校は県内全域から出願可能になった。ただし実質的には通学時間・交通アクセスが大きな制約になる。須坂市内には市立・県立高校も複数ある。
+  </div>
+
+  <h3 class="sub">🚃 須坂市から主要高校へのアクセス</h3>
+  <div class="suzaka-map">
+    <h4>通学圏内の主要公立高校（目安：電車＋徒歩）</h4>
+    <div class="sc-row"><span class="sc-name">須坂高校（普通）</span><span class="sc-km">須坂市内・最寄り</span><span class="sc-cond cond-ok">徒歩圏・通学最適</span></div>
+    <div class="sc-row"><span class="sc-name">須坂創成高校</span><span class="sc-km">須坂市内</span><span class="sc-cond cond-ok">徒歩圏・通学最適</span></div>
+    <div class="sc-row"><span class="sc-name">屋代高校（千曲市）</span><span class="sc-km">しなの鉄道→車 約40分</span><span class="sc-cond cond-ok">通学可（長野経由）</span></div>
+    <div class="sc-row"><span class="sc-name">長野高校（長野市）</span><span class="sc-km">長野電鉄→JR 約50分</span><span class="sc-cond cond-ok">通学可（定期利用者多い）</span></div>
+    <div class="sc-row"><span class="sc-name">長野吉田高校（長野市）</span><span class="sc-km">長野電鉄→市内 約50分</span><span class="sc-cond cond-ok">通学可</span></div>
+    <div class="sc-row"><span class="sc-name">長野西高校（長野市）</span><span class="sc-km">長野電鉄→バス 約60分</span><span class="sc-cond cond-ok">通学可（少し遠い）</span></div>
+    <div class="sc-row"><span class="sc-name">篠ノ井高校（長野市）</span><span class="sc-km">JR経由 約60〜70分</span><span class="sc-cond cond-adj">通学可（遠め）</span></div>
+    <div class="sc-row"><span class="sc-name">中野西高校（中野市）</span><span class="sc-km">長野電鉄 約40分</span><span class="sc-cond cond-adj">通学可</span></div>
+    <div class="sc-row"><span class="sc-name">長野日本大学高校（長野市）</span><span class="sc-km">長野電鉄→バス 約60分</span><span class="sc-cond cond-priv">私立・通学可</span></div>
+    <div class="sc-row"><span class="sc-name">文化学園長野高校（長野市）</span><span class="sc-km">長野電鉄→市内 約55分</span><span class="sc-cond cond-priv">私立・通学可</span></div>
+    <div class="sc-row"><span class="sc-name">長野清泉女学院（長野市）</span><span class="sc-km">長野電鉄→善光寺下 約55分</span><span class="sc-cond cond-priv">私立・女子校・通学可</span></div>
+    <div class="sc-row"><span class="sc-name">佐久長聖高校（佐久市）</span><span class="sc-km">車・新幹線 約60〜80分</span><span class="sc-cond cond-priv">私立・寮あり→距離関係なし</span></div>
+  </div>
+
+  <h3 class="sub">📋 須坂市から受験できる主な条件・注意点</h3>
+  <table class="sum"><thead><tr><th>条件</th><th>内容</th></tr></thead><tbody>
+    <tr><td><strong>第1通学区の高校</strong></td><td>長野市・千曲市・須坂市・中野市・飯山市等の公立高校→原則出願可能</td></tr>
+    <tr><td><strong>他学区の高校</strong></td><td>令和6年度以降は県内全域へ出願可能。ただし通学時間が現実的かどうかが条件</td></tr>
+    <tr><td><strong>通学時間の目安</strong></td><td>片道90分以内が現実的。2時間超は部活・体力的に厳しい</td></tr>
+    <tr><td><strong>寮のある高校</strong></td><td>佐久長聖（私立）→寮あり、どこからでも入学可能</td></tr>
+    <tr><td><strong>自転車通学</strong></td><td>須坂高校・須坂創成は自転車圏内。距離・道路状況を要確認</td></tr>
+    <tr><td><strong>保護者の転居予定</strong></td><td>入学後の転居は問題なし。出願時の住所が基準</td></tr>
+  </tbody></table>
+
+  <h3 class="sub">🎯 須坂市から狙える高校リスト（学力別）</h3>
+  <table class="sum"><thead><tr><th>目安得点帯</th><th>おすすめ公立</th><th>おすすめ私立</th></tr></thead><tbody>
+    <tr><td><strong>400点以上</strong></td><td>県立長野、屋代（理数）</td><td>長野日大（特進）、佐久長聖（Ⅰ類）</td></tr>
+    <tr><td><strong>360〜400点</strong></td><td>屋代（普通）、長野吉田</td><td>長野日大（進学）、文化学園（特進選抜）</td></tr>
+    <tr><td><strong>320〜360点</strong></td><td>須坂、長野西</td><td>文化学園（特進）、長野清泉（特進）</td></tr>
+    <tr><td><strong>270〜320点</strong></td><td>篠ノ井、長野東、市立長野</td><td>文化学園（進学）、長野清泉（進学）</td></tr>
+    <tr><td><strong>270点未満</strong></td><td>須坂東、長野南、須坂創成</td><td>長野俊英、長野清泉（各コース）</td></tr>
+  </tbody></table>
+
+  <div class="notice">
+    <strong>⚠ 重要：通学の現実チェックリスト</strong><br>
+    □ 電車・バスの時刻と通学路を実際に確認したか<br>
+    □ 定期代（月額）を家計で負担できるか<br>
+    □ 部活や放課後活動後の帰宅時間は何時になるか<br>
+    □ 学校説明会やオープンスクールに参加して雰囲気を確認したか<br>
+    □ 担任の先生や塾の先生に相談したか
+  </div>
+</section>
+
+<!-- ═══════════════ 私立入試 ═══════════════ -->
+<section id="priv" class="section">
+  <h2 class="sec-title priv">私立高校入試の仕組み</h2>
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-card-title">推薦入試（1〜2月）</div>
+      <div class="info-row"><span class="info-label">試験内容</span><span class="info-val">面接・書類審査中心</span></div>
+      <div class="info-row"><span class="info-label">内申基準</span><span class="info-val">各校が出願条件を設定</span></div>
+      <div class="info-row"><span class="info-label">推薦書</span><span class="info-val">学校長推薦または自己推薦</span></div>
+      <div class="info-row"><span class="info-label">合格率</span><span class="info-val">基準達成で高い（専願前提）</span></div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-title">一般入試（1〜2月）</div>
+      <div class="info-row"><span class="info-label">試験内容</span><span class="info-val">3教科（国・数・英）</span></div>
+      <div class="info-row"><span class="info-label">倍率</span><span class="info-val">学校・コースにより変動大</span></div>
+      <div class="info-row"><span class="info-label">専願・併願</span><span class="info-val">両方設定している学校が多い</span></div>
+      <div class="info-row"><span class="info-label">出題傾向</span><span class="info-val">公立入試に近い形式</span></div>
+    </div>
+  </div>
+  <div class="notice"><strong>✅ 私立は公立の「前に」結果が出る</strong><br>私立入試は1〜2月。「私立で合格を確保 → 公立後期で勝負」が長野県の標準的な受験戦略。私立は通学区の制限なし。</div>
+  <h3 class="sub">🏫 主要私立高校 コース・偏差値一覧</h3>
+  <div class="two-col">
+    <div>
+      <div class="priv-school-card"><h4>🔵 長野日本大学高校（北信・長野市）</h4><div class="priv-course-row"><span class="priv-course-name">普通科 特進コース</span><span class="priv-course-dev">偏差値 65</span></div><div class="priv-course-row"><span class="priv-course-name">普通科 進学コース</span><span class="priv-course-dev">偏差値 62</span></div><div class="priv-course-row"><span class="priv-course-name">探究創造学科</span><span class="priv-course-dev">偏差値 62</span></div><div style="margin-top:7px;font-size:11px;color:var(--mid);">日大準付属校。特推制度あり。IBDP新設。</div></div>
+      <div class="priv-school-card"><h4>🔵 文化学園長野高校（北信・長野市）</h4><div class="priv-course-row"><span class="priv-course-name">特進選抜コース</span><span class="priv-course-dev">偏差値 59</span></div><div class="priv-course-row"><span class="priv-course-name">特進コース</span><span class="priv-course-dev">偏差値 54</span></div><div class="priv-course-row"><span class="priv-course-name">進学コース</span><span class="priv-course-dev">偏差値 49</span></div></div>
+      <div class="priv-school-card"><h4>🔵 長野清泉女学院高校（北信・長野市）★女子</h4><div class="priv-course-row"><span class="priv-course-name">特進コース（探究）</span><span class="priv-course-dev">偏差値 59</span></div><div class="priv-course-row"><span class="priv-course-name">進学コース</span><span class="priv-course-dev">偏差値 52</span></div></div>
+    </div>
+    <div>
+      <div class="priv-school-card"><h4>🟢 佐久長聖高校（東信・佐久市）</h4><div class="priv-course-row"><span class="priv-course-name">Ⅰ類（難関国公立）</span><span class="priv-course-dev">偏差値 65〜66</span></div><div class="priv-course-row"><span class="priv-course-name">Ⅱ類（国公立）</span><span class="priv-course-dev">偏差値 59</span></div><div style="margin-top:7px;font-size:11px;color:var(--mid);">寮制度あり。陸上・野球など全国レベル。</div></div>
+      <div class="priv-school-card"><h4>🟢 上田西高校（東信・上田市）</h4><div class="priv-course-row"><span class="priv-course-name">特進コース</span><span class="priv-course-dev">偏差値 56</span></div><div class="priv-course-row"><span class="priv-course-name">進学コース</span><span class="priv-course-dev">偏差値 47</span></div></div>
+      <div class="priv-school-card"><h4>🟣 松商学園高校（中信・松本市）</h4><div class="priv-course-row"><span class="priv-course-name">特進コース</span><span class="priv-course-dev">偏差値 59</span></div><div class="priv-course-row"><span class="priv-course-name">文理コース</span><span class="priv-course-dev">偏差値 54</span></div><div class="priv-course-row"><span class="priv-course-name">総合コース</span><span class="priv-course-dev">偏差値 51</span></div><div class="priv-course-row"><span class="priv-course-name">商業科</span><span class="priv-course-dev">偏差値 47</span></div></div>
+      <div class="priv-school-card"><h4>🟣 松本第一高校（中信・松本市）</h4><div class="priv-course-row"><span class="priv-course-name">SS特別選抜コース</span><span class="priv-course-dev">偏差値 59</span></div><div class="priv-course-row"><span class="priv-course-name">総合進学コース</span><span class="priv-course-dev">偏差値 46</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ランキング ═══════════════ -->
+<section id="rank" class="section">
+  <h2 class="sec-title">偏差値・得点別 高校一覧（公立＋私立）</h2>
+  <p style="font-size:12px;color:var(--mid);margin-bottom:14px;">北信・東信・中信の公立＋私立を偏差値降順で掲載。後期合格ライン（500点換算）は塾・模試データに基づく推計値。</p>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
+    <span class="area-label area-hoku">北信</span><span class="area-label area-tou">東信</span><span class="area-label area-chu">中信</span><span class="area-label area-priv">私立</span>
+    <span class="zenki-tag">前期あり</span><span class="only-tag">後期のみ</span>
+  </div>
+  <!-- 65以上 -->
+  <div class="rank-header"><div><div class="rank-score">65+</div><div class="rank-score-sub">偏差値</div></div><div><div style="font-size:13px;font-weight:700;">最難関ゾーン</div><div class="rank-devlabel">合格ライン目安 400点以上（後期）</div></div></div>
+  <table class="rank-table"><thead><tr><th style="width:36%">高校名・コース</th><th style="width:10%">地区</th><th style="width:12%">偏差値</th><th style="width:20%">後期合格ライン</th><th>前期</th></tr></thead><tbody>
+    <tr><td><div class="school-name">県立長野</div><div class="school-course">普通科</div></td><td><span class="area-label area-hoku">北信</span></td><td><span class="devnum pub">70</span></td><td><div class="score-bar-wrap"><span class="score-num">400点+</span><div class="score-bar" style="width:80%"></div></div></td><td><span class="only-tag">後期のみ</span></td></tr>
+    <tr><td><div class="school-name">松本深志</div><div class="school-course">普通科</div></td><td><span class="area-label area-chu">中信</span></td><td><span class="devnum pub">69</span></td><td><div class="score-bar-wrap"><span class="score-num">400点+</span><div class="score-bar" style="width:80%"></div></div></td><td><span class="only-tag">後期のみ</span></td></tr>
+    <tr><td><div class="school-name">屋代</div><div class="school-course">理数科</div></td><td><span class="area-label area-hoku">北信</span></td><td><span class="devnum pub">68</span></td><td><div class="score-bar-wrap"><span class="score-num">390点+</span><div class="score-bar" style="width:78%"></div></div></td><td><span class="zenki-tag">前期あり</span></td></tr>
+    <tr><td><div class="school-name">長野日本大学</div><div class="school-course">特進コース</div></td><td><span class="area-label area-priv">私立</span></td><td><span class="devnum priv">65</span></td><td><div class="score-bar-wrap"><span class="score-num">—</span><div class="score-bar priv-bar" style="width:65%"></div></div></td><td><span class="zenki-tag">推薦・一般</span></td></tr>
+    <tr><td><div class="school-name">佐久長聖</div><div class="school-course">Ⅰ類（難関国公立）</div></td><td><span class="area-label area-priv">私立</span></td><td><span class="devnum priv">65</span></td><td><div class="score-bar-wrap"><span class="score-num">—</span><div class="score-bar priv-bar" style="width:65%"></div></div></td><td><span class="zenki-tag">推薦・一般</span></td></tr>
+  </tbody></table>
+  <!-- 62〜64 -->
+  <div class="rank-header" style="margin-top:14px;"><div><div class="rank-score">62〜64</div><div class="rank-score-sub">偏差値</div></div><div><div style="font-size:13px;font-weight:700;">準トップゾーン</div><div class="rank-devlabel">合格ライン目安 375〜400点</div></div></div>
+  <table class="rank-table"><thead><tr><th style="width:36%">高校名・コース</th><th style="width:10%">地区</th><th style="width:12%">偏差値</th><th style="width:20%">後期合格ライン</th><th>前期</th></tr></thead><tbody>
+    <tr><td><div class="school-name">野沢北</div><div class="school-course">理数科</div></td><td><span class="area-label area-tou">東信</span></td><td><span class="devnum pub">65</span></td><td><div class="score-bar-wrap"><span class="score-num">400点+</span><div class="score-bar" style="width:80%"></div></div></td><td><span class="zenki-tag">前期あり</span></td></tr>
+    <tr><td><div class="school-name">上田</div><div class="school-course">普通科</div></td><td><span class="area-label area-tou">東信</span></td><td><span class="devnum pub">65</span></td><td><div class="score-bar-wrap"><span class="score-num">380点+</span><div class="score-bar" style="width:76%"></div></div></td><td><span class="zenki-tag">前期あり</span></td></tr>
+    <tr><td><div class="school-name">松本県ヶ丘</div><div class="school-course">普通科</div></td><td><span class="area-label area-chu">中信</span></td><td><span class="devnum pub">64</span></td><td><div class="score-bar-wrap"><span class="score-num">380点+</span><div class="score-bar" style="width:76%"></div></div></td><td><span class="zenki-tag">前期あり</span></td></tr>
+    <tr><td><div class="school-name">屋代</div><div class="school-course">普通科</div></td><td><span class="area-label area-hoku">北信</span></td><td><span class="devnum pub">66</span></td><td><div class="score-bar-wrap"><span class="score-num">370点+</span><div class="score-bar" style="width:74%"></div></div></td><td><span class="zenki-tag">前期あり</span></td></tr>
+    <tr><td><div class="school-name">長野日本大学</div><div class="school-course">進学コース／探究創造</div></td><td><span class="area-label area-priv">私立</span></td><td><span class="devnum priv">62</span></td><td><div class="score-bar-wrap"><span class="score-num">—</span><div class="score-bar priv-bar" style="width:62%"></div></div></td><td><span class="zenki-tag">推薦・一般</span></td></tr>
+  </tbody></table>
+  <!-- 59〜61 -->
+  <div class="rank-header" style="margin-top:14px;"><div><div class="rank-score">59〜61</div><div class="rank-score-sub">偏差値</div></div><div><div style="font-size:13px;font-weight:700;">上位ゾーン</div><div class="rank-devlabel">合格ライン目安 350〜375点</div></div></div>
+  <table class="rank-table"><thead><tr><th style="width:36%">高校名・コース</th><th style="width:10%">地区</th><th style="width:12%">偏差値</th><th style="width:20%">後期合格ライン</th><th>前期</th></tr></thead><tbody>
+    <tr><td><div class="school-name">松本蟻ヶ崎</div><div class="school-course">普通科</div></td><td><span class="area-label area-chu">中信</span></td><td><span class="devnum pub">61</span></td><td><div class="score-bar-wrap"><span class="score-num">360点+</span><div class="score-bar" style="width:72%"></div></div></td><td><span class="zenki-tag">前期あり</span></td></tr>
+    <tr><td><div class="school-name">野沢北</div><div class="school-course">普通科</div></td><td><span class="area-label area-tou">東信</span></td><td><span class="devnum pub">61</span></td><td><div class="score-bar-wrap"><span class="score-num">360点+</span><div class="score-bar" style="width:72%"></div></div></td><td><span class="zenki-tag">前期あり</span></td></tr>
+    <tr><td><div class="school-name">須坂</div><div class="school-course">普通科</div></td><td><span class="area-label area-hoku">北信</span></td><td><span class="devnum pub">61</span></td><td><div class="score-bar-wrap"><span class="score-num">330点+</span><div class="score-bar" style="width:66%"></div></div></td><td><span class="zenki-tag">前期あり</span></td></tr>
+    <tr><td><div class="school-name">長野吉田</div><div class="school-course">普通科</div></td><td><span class="area-label area-hoku">北信</span></td><td><span class="devnum pub">60</span></td><td><div class="score-bar-wrap"><span class="score-num">350点+</span><div class="score-bar" style="width:70%"></div></div></td><td><span class="zenki-tag">前期あり</span></td></tr>
+    <tr><td><div class="school-name">文化学園長野</div><div class="school-course">特進選抜コース</div></td><td><span class="area-label area-priv">私立</span></td><td><span class="devnum priv">59</span></td><td><div class="score-bar-wrap"><span class="score-num">—</span><div class="score-bar priv-bar" style="width:59%"></div></div></td><td><span class="zenki-tag">推薦・一般</span></td></tr>
+    <tr><td><div class="school-name">長野清泉女学院</div><div class="school-course">特進コース（女子）</div></td><td><span class="area-label area-priv">私立</span></td><td><span class="devnum priv">59</span></td><td><div class="score-bar-wrap"><span class="score-num">—</span><div class="score-bar priv-bar" style="width:59%"></div></div></td><td><span class="zenki-tag">推薦・一般</span></td></tr>
+    <tr><td><div class="school-name">松商学園</div><div class="school-course">特進コース</div></td><td><span class="area-label area-priv">私立</span></td><td><span class="devnum priv">59</span></td><td><div class="score-bar-wrap"><span class="score-num">—</span><div class="score-bar priv-bar" style="width:59%"></div></div></td><td><span class="zenki-tag">推薦・一般</span></td></tr>
+    <tr><td><div class="school-name">佐久長聖</div><div class="school-course">Ⅱ類</div></td><td><span class="area-label area-priv">私立</span></td><td><span class="devnum priv">59</span></td><td><div class="score-bar-wrap"><span class="score-num">—</span><div class="score-bar priv-bar" style="width:59%"></div></div></td><td><span class="zenki-tag">推薦・一般</span></td></tr>
+  </tbody></table>
+  <!-- 55〜58 -->
+  <div class="rank-header" style="margin-top:14px;"><div><div class="rank-score">55〜58</div><div class="rank-score-sub">偏差値</div></div><div><div style="font-size:13px;font-weight:700;">中上位ゾーン</div><div class="rank-devlabel">合格ライン目安 310〜350点</div></div></div>
+  <table class="rank-table"><thead><tr><th style="width:36%">高校名・コース</th><th style="width:10%">地区</th><th style="width:12%">偏差値</th><th style="width:20%">後期合格ライン</th><th>前期</th></tr></thead><tbody>
+    <tr><td><div class="school-name">松本美須々ヶ丘</div><div class="school-course">普通科</div></td><td><span class="area-label area-chu">中信</span></td><td><span class="devnum pub">57</span></td><td><div class="score-bar-wrap"><span class="score-num">350前後</span><div class="score-bar" style="width:68%"></div></div></td><td><span class="zenki-tag">前期あり</span></td></tr>
+    <tr><td><div class="school-name">岩村田</div><div class="school-course">普通科</div></td><td><span class="area-label area-tou">東信</span></td><td><span class="devnum pub">57</span></td><td><div class="score-bar-wrap"><span class="score-num">340前後</span><div class="score-bar" style="width:66%"></div></div></td><td><span class="zenki-tag">前期あり</span></td></tr>
+    <tr><td><div class="school-name">長野西</div><div class="school-course">普通科</div></td><td><span class="area-label area-hoku">北信</span></td><td><span class="devnum pub">56</span></td><td><div class="score-bar-wrap"><span class="score-num">315前後</span><div class="score-bar" style="width:63%"></div></div></td><td><span class="zenki-tag">前期あり</span></td></tr>
+    <tr><td><div class="school-name">上田西</div><div class="school-course">特進コース</div></td><td><span class="area-label area-priv">私立</span></td><td><span class="devnum priv">56</span></td><td><div class="score-bar-wrap"><span class="score-num">—</span><div class="score-bar priv-bar" style="width:56%"></div></div></td><td><span class="zenki-tag">推薦・一般</span></td></tr>
+    <tr><td><div class="school-name">文化学園長野</div><div class="school-course">特進コース</div></td><td><span class="area-label area-priv">私立</span></td><td><span class="devnum priv">54</span></td><td><div class="score-bar-wrap"><span class="score-num">—</span><div class="score-bar priv-bar" style="width:54%"></div></div></td><td><span class="zenki-tag">推薦・一般</span></td></tr>
+    <tr><td><div class="school-name">松商学園</div><div class="school-course">文理コース</div></td><td><span class="area-label area-priv">私立</span></td><td><span class="devnum priv">54</span></td><td><div class="score-bar-wrap"><span class="score-num">—</span><div class="score-bar priv-bar" style="width:54%"></div></div></td><td><span class="zenki-tag">推薦・一般</span></td></tr>
+  </tbody></table>
+  <!-- 50〜54 -->
+  <div class="rank-header" style="margin-top:14px;"><div><div class="rank-score">50〜54</div><div class="rank-score-sub">偏差値</div></div><div><div style="font-size:13px;font-weight:700;">中位ゾーン</div><div class="rank-devlabel">合格ライン目安 270〜310点</div></div></div>
+  <table class="rank-table"><thead><tr><th style="width:36%">高校名・コース</th><th style="width:10%">地区</th><th style="width:12%">偏差値</th><th style="width:20%">後期合格ライン</th><th>前期</th></tr></thead><tbody>
+    <tr><td><div class="school-name">篠ノ井</div><div class="school-course">普通科</div></td><td><span class="area-label area-hoku">北信</span></td><td><span class="devnum pub">53</span></td><td><div class="score-bar-wrap"><span class="score-num">270前後</span><div class="score-bar" style="width:54%"></div></div></td><td><span class="zenki-tag">前期あり</span></td></tr>
+    <tr><td><div class="school-name">豊科</div><div class="school-course">普通科</div></td><td><span class="area-label area-chu">中信</span></td><td><span class="devnum pub">53</span></td><td><div class="score-bar-wrap"><span class="score-num">270前後</span><div class="score-bar" style="width:54%"></div></div></td><td><span class="zenki-tag">前期あり</span></td></tr>
+    <tr><td><div class="school-name">上田東</div><div class="school-course">普通科</div></td><td><span class="area-label area-tou">東信</span></td><td><span class="devnum pub">52</span></td><td><div class="score-bar-wrap"><span class="score-num">265前後</span><div class="score-bar" style="width:53%"></div></div></td><td><span class="zenki-tag">前期あり</span></td></tr>
+    <tr><td><div class="school-name">市立長野</div><div class="school-course">総合学科</div></td><td><span class="area-label area-hoku">北信</span></td><td><span class="devnum pub">51</span></td><td><div class="score-bar-wrap"><span class="score-num">270前後</span><div class="score-bar" style="width:54%"></div></div></td><td><span class="zenki-tag">前期あり</span></td></tr>
+    <tr><td><div class="school-name">長野清泉女学院</div><div class="school-course">進学コース（女子）</div></td><td><span class="area-label area-priv">私立</span></td><td><span class="devnum priv">52</span></td><td><div class="score-bar-wrap"><span class="score-num">—</span><div class="score-bar priv-bar" style="width:52%"></div></div></td><td><span class="zenki-tag">推薦・一般</span></td></tr>
+    <tr><td><div class="school-name">松商学園</div><div class="school-course">総合コース</div></td><td><span class="area-label area-priv">私立</span></td><td><span class="devnum priv">51</span></td><td><div class="score-bar-wrap"><span class="score-num">—</span><div class="score-bar priv-bar" style="width:51%"></div></div></td><td><span class="zenki-tag">推薦・一般</span></td></tr>
+  </tbody></table>
+  <div class="footnote">※偏差値は複数の塾・模試データをもとにした参考値。後期合格ラインは推計値であり、合格を保証するものではありません。<br>※最新情報は <a href="https://www.pref.nagano.lg.jp/kyoiku/koko/saiyo-nyuushi/shiken/ko/r8/r8konyushi.html" target="_blank">長野県教育委員会 公式ページ</a> でご確認ください。</div>
+</section>
+
+<!-- ═══════════════ 進路の選び方 ═══════════════ -->
+<section id="think" class="section">
+  <h2 class="sec-title nayami">進路を選ぶ時の視点・思考パターン</h2>
+  <p style="font-size:12px;color:var(--mid);margin-bottom:18px;">「どの高校に行けるか」ではなく「どの高校に行きたいか・なぜ行くのか」が出発点。6つの視点で整理しよう。</p>
+
+  <div class="think-grid">
+    <div class="think-card"><div class="think-icon">🎯</div><div class="think-title">① 大学・就職のゴールから逆算する</div><div class="think-body">「将来どんな仕事をしたいか」「どの大学に行きたいか」から逆算して高校を選ぶ。国公立大学を目指すなら進学実績が豊富な進学校、大学の指定校推薦を使いたいなら私立高校、専門職を目指すなら専門学科がある高校。ゴールが見えていると選びやすい。</div></div>
+    <div class="think-card"><div class="think-icon">📈</div><div class="think-title">② 「背伸びして追いかける」か「余裕で入って伸びる」か</div><div class="think-body">偏差値が高い高校に入ると、周りのレベルが高く刺激を受けられる反面、授業についていくのが大変になるリスクがある。逆に余裕のある高校に入ると、上位に立ちやすく自信がつく。本人の性格・体力・意欲に合わせて判断することが大切。</div></div>
+    <div class="think-card"><div class="think-icon">🏃</div><div class="think-title">③ 部活・課外活動の優先度</div><div class="think-body">「高校でこの部活をやりたい」という明確な目標がある場合は、その部活が強い・活発な学校を選ぶことも正解。松商学園の野球、佐久長聖の陸上など、全国レベルの部活が入学動機になるケースも多い。ただし部活だけで高校を決めるのはリスクもある。</div></div>
+    <div class="think-card"><div class="think-icon">🏠</div><div class="think-title">④ 通学・生活環境の現実</div><div class="think-body">通学時間が長いと体力・精神力が削られ、学習時間や睡眠時間が減る。片道60分以上になるなら、それが3年間続く覚悟と現実的な確認が必要。寮がある学校（佐久長聖など）は通学距離を無効化できる選択肢。</div></div>
+    <div class="think-card"><div class="think-icon">💰</div><div class="think-title">⑤ 費用・家計との兼ね合い</div><div class="think-body">公立高校は授業料無償化の対象で家計負担が少ない。私立高校は授業料・施設費・教材費などがかかるが、就学支援金（国・県）で一定補助される。交通費（定期代）も含めて3年間のトータルコストで比較することが大切。</div></div>
+    <div class="think-card"><div class="think-icon">🧠</div><div class="think-title">⑥ 自分の「強み・弱み」を正直に見る</div><div class="think-body">5教科の総合点だけでなく、「得意科目で稼げるか」「内申点は確保できているか」「前期で評価される活動歴があるか」など、自分の武器を把握する。勉強だけが武器じゃない。資格・部活・探究活動なども評価される高校がある。</div></div>
+  </div>
+
+  <div class="divider-band"></div>
+  <h3 class="sub">🧩 代表的な5つの選び方パターン</h3>
+  <table class="sum"><thead><tr><th>タイプ</th><th>特徴</th><th>向いている人</th></tr></thead><tbody>
+    <tr><td><strong>🎓 進学重視型</strong></td><td>偏差値・進学実績を最優先。国公立大を狙う</td><td>学習意欲が高い、大学進学が明確</td></tr>
+    <tr><td><strong>🏆 部活・スポーツ型</strong></td><td>強化部・特定の活動を軸に選ぶ</td><td>部活に人生をかけたい、指定校推薦も検討</td></tr>
+    <tr><td><strong>🛡 安定確保型</strong></td><td>余裕を持って入れる高校を選び、上位を目指す</td><td>精神的プレッシャーに弱い、着実に伸びたい</td></tr>
+    <tr><td><strong>🔑 推薦戦略型</strong></td><td>内申点を武器に前期・私立推薦で早期確保</td><td>内申が高い、早く進路を決めたい</td></tr>
+    <tr><td><strong>🌍 特色・個性型</strong></td><td>国際・探究・専門など、独自の教育を選ぶ</td><td>やりたいことが明確、普通科に縛られない</td></tr>
+  </tbody></table>
+
+  <div class="notice-green">
+    <strong>💡 最終的に大切なこと</strong>：偏差値や評判だけで決めた高校より、「自分がここで3年間を過ごしたい」と思える高校のほうが、結果として伸びる。オープンスクールや学校説明会に必ず足を運び、自分の目で確かめることが一番の判断材料になる。
+  </div>
+</section>
+
+<!-- ═══════════════ シミュレーター ═══════════════ -->
+<section id="sim" class="section">
+  <h2 class="sec-title" style="border-color:var(--gold);">🎯 おすすめ高校シミュレーター</h2>
+  <p style="font-size:12px;color:var(--mid);margin-bottom:18px;">5教科の点数・内申点・希望条件を入力すると、狙えるおすすめ高校を3校提案します。</p>
+
+  <div class="sim-wrap">
+    <div class="sim-title">あなたの現在の5教科の点数を入力</div>
+    <div class="sim-sub">直近のテスト（定期テストまたは模試）の5教科の点数を入力してください（各100点満点）</div>
+
+    <div class="score-inputs">
+      <div class="score-inp-wrap"><label>国語</label><input type="number" id="s_kokugo" min="0" max="100" placeholder="0〜100"></div>
+      <div class="score-inp-wrap"><label>数学</label><input type="number" id="s_sugaku" min="0" max="100" placeholder="0〜100"></div>
+      <div class="score-inp-wrap"><label>英語</label><input type="number" id="s_eigo" min="0" max="100" placeholder="0〜100"></div>
+      <div class="score-inp-wrap"><label>理科</label><input type="number" id="s_rika" min="0" max="100" placeholder="0〜100"></div>
+      <div class="score-inp-wrap"><label>社会</label><input type="number" id="s_shakai" min="0" max="100" placeholder="0〜100"></div>
+    </div>
+
+    <div class="naishin-inp-wrap">
+      <label>内申点（中3）</label>
+      <input type="number" id="s_naishin" min="5" max="45" placeholder="5〜45">
+      <span style="font-size:11px;color:var(--mid);">9教科の合計（最大45点）</span>
+    </div>
+
+    <div class="pref-section">
+      <div class="pref-title">📍 通学地区（複数選択可）</div>
+      <div class="pref-grid">
+        <span class="pref-chip" onclick="toggleChip(this,'area')" data-val="hoku">北信（長野・須坂）</span>
+        <span class="pref-chip" onclick="toggleChip(this,'area')" data-val="tou">東信（上田・佐久）</span>
+        <span class="pref-chip" onclick="toggleChip(this,'area')" data-val="chu">中信（松本・大町）</span>
+      </div>
+    </div>
+
+    <div class="pref-section">
+      <div class="pref-title">🎯 優先したいこと（複数選択可）</div>
+      <div class="pref-grid">
+        <span class="pref-chip" onclick="toggleChip(this,'goal')" data-val="kokuritu">国公立大学進学</span>
+        <span class="pref-chip" onclick="toggleChip(this,'goal')" data-val="shitei">指定校推薦を使いたい</span>
+        <span class="pref-chip" onclick="toggleChip(this,'goal')" data-val="bukatsu">部活・スポーツ重視</span>
+        <span class="pref-chip" onclick="toggleChip(this,'goal')" data-val="zenki">前期選抜で受けたい</span>
+        <span class="pref-chip" onclick="toggleChip(this,'goal')" data-val="priv">私立も含めて検討</span>
+        <span class="pref-chip" onclick="toggleChip(this,'goal')" data-val="stable">通いやすさ重視</span>
+      </div>
+    </div>
+
+    <button class="sim-btn" onclick="runSimulator()">おすすめ高校を調べる →</button>
+
+    <div class="result-wrap" id="result-area" style="display:none;"></div>
+  </div>
+
+  <div class="notice" style="margin-top:0;">
+    <strong>⚠ ご注意</strong>：このシミュレーターは偏差値・合格ライン目安データをもとにした参考提案です。実際の合否は倍率・内申点の使われ方・面接などにより異なります。必ず担任の先生や塾での面談も活用してください。
+  </div>
+</section>
+
+</main>
+
+<script>
+// タブ切替
+function showTab(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.currentTarget.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// チップ選択
+function toggleChip(el,group){
+  el.classList.toggle('selected');
+}
+function getSelected(group){
+  return Array.from(document.querySelectorAll(`.pref-chip[data-val]`))
+    .filter(el=>el.classList.contains('selected')&&el.getAttribute('onclick').includes("'"+group+"'"))
+    .map(el=>el.getAttribute('data-val'));
+}
+
+// 高校データ
+const SCHOOLS = [
+  {name:'県立長野',course:'普通科',dev:70,minScore:400,area:'hoku',type:'pub',zenki:false,goals:['kokuritu'],comment:'長野県トップ。前期なし・後期一本勝負。当日400点以上が目安。内申点は参考程度で学力がすべて。'},
+  {name:'松本深志',course:'普通科',dev:69,minScore:400,area:'chu',type:'pub',zenki:false,goals:['kokuritu'],comment:'中信トップ。前期なし。東大・京大への進学実績あり。松本エリア最高峰。'},
+  {name:'屋代',course:'理数科',dev:68,minScore:390,area:'hoku',type:'pub',zenki:true,goals:['kokuritu'],comment:'理系進学に強い。前期あり。倍率は高め。理系志望に最適。'},
+  {name:'野沢北',course:'理数科',dev:65,minScore:400,area:'tou',type:'pub',zenki:true,goals:['kokuritu'],comment:'東信トップ理系コース。倍率が県内最高水準になることも。'},
+  {name:'上田',course:'普通科',dev:65,minScore:380,area:'tou',type:'pub',zenki:true,goals:['kokuritu'],comment:'東信の雄。国公立進学実績が豊富。前期あり。'},
+  {name:'松本県ヶ丘',course:'普通科',dev:64,minScore:380,area:'chu',type:'pub',zenki:true,goals:['kokuritu'],comment:'中信では松本深志に次ぐ進学校。前期あり。'},
+  {name:'屋代',course:'普通科',dev:66,minScore:370,area:'hoku',type:'pub',zenki:true,goals:['kokuritu'],comment:'北信の名門進学校。前期あり。千曲市・長野市から通学者多い。'},
+  {name:'松本蟻ヶ崎',course:'普通科',dev:61,minScore:360,area:'chu',type:'pub',zenki:true,goals:['kokuritu','shitei'],comment:'中信の上位校。前期あり。国公立への進学実績も安定。'},
+  {name:'野沢北',course:'普通科',dev:61,minScore:360,area:'tou',type:'pub',zenki:true,goals:['kokuritu'],comment:'東信の主要進学校。前期あり。'},
+  {name:'長野吉田',course:'普通科',dev:60,minScore:350,area:'hoku',type:'pub',zenki:true,goals:['kokuritu','shitei'],comment:'長野市の有力進学校。前期あり。倍率は高め・僅差の争いになりやすい。'},
+  {name:'須坂',course:'普通科',dev:61,minScore:330,area:'hoku',type:'pub',zenki:true,goals:['stable','bukatsu'],comment:'須坂市内・近隣から通いやすい公立進学校。前期あり。'},
+  {name:'岩村田',course:'普通科',dev:57,minScore:340,area:'tou',type:'pub',zenki:true,goals:['stable','shitei'],comment:'佐久地域の進学校。前期あり。'},
+  {name:'松本美須々ヶ丘',course:'普通科',dev:57,minScore:345,area:'chu',type:'pub',zenki:true,goals:['stable'],comment:'中信の上位校。前期あり。'},
+  {name:'長野西',course:'普通科',dev:56,minScore:315,area:'hoku',type:'pub',zenki:true,goals:['stable','shitei'],comment:'長野市の中堅進学校。国際教養科も人気。前期あり。'},
+  {name:'篠ノ井',course:'普通科',dev:53,minScore:270,area:'hoku',type:'pub',zenki:true,goals:['stable','bukatsu'],comment:'長野市南部から通いやすい。前期あり。'},
+  {name:'豊科',course:'普通科',dev:53,minScore:270,area:'chu',type:'pub',zenki:true,goals:['stable'],comment:'安曇野市内。前期あり。'},
+  {name:'上田東',course:'普通科',dev:52,minScore:265,area:'tou',type:'pub',zenki:true,goals:['stable'],comment:'東信の中堅校。前期あり。'},
+  {name:'市立長野',course:'総合学科',dev:51,minScore:270,area:'hoku',type:'pub',zenki:true,goals:['stable','bukatsu'],comment:'長野市立。総合学科で多様な科目を選択できる。前期あり。'},
+  // 私立
+  {name:'長野日本大学',course:'特進コース',dev:65,minScore:null,area:'hoku',type:'priv',zenki:true,goals:['kokuritu','priv'],comment:'北信最難関私立。日大準付属校で大学推薦ルートも。IBDP新設。内申基準あり。'},
+  {name:'佐久長聖',course:'Ⅰ類（難関国公立）',dev:65,minScore:null,area:'tou',type:'priv',zenki:true,goals:['kokuritu','priv','bukatsu'],comment:'寮あり→通学距離不問。陸上・野球など全国トップクラスの部活も。難関大進学に強い。'},
+  {name:'長野日本大学',course:'進学コース',dev:62,minScore:null,area:'hoku',type:'priv',zenki:true,goals:['shitei','priv'],comment:'指定校推薦が充実。日大への特別推薦制度あり。北信の人気私立。'},
+  {name:'佐久長聖',course:'Ⅱ類（国公立）',dev:59,minScore:null,area:'tou',type:'priv',zenki:true,goals:['kokuritu','priv','stable'],comment:'信大などの国公立を目指すコース。寮で北信からも通える。'},
+  {name:'文化学園長野',course:'特進選抜コース',dev:59,minScore:null,area:'hoku',type:'priv',zenki:true,goals:['kokuritu','priv'],comment:'難関私大志望に対応。推薦入試で早期確保しやすい。'},
+  {name:'長野清泉女学院',course:'特進コース',dev:59,minScore:null,area:'hoku',type:'priv',zenki:true,goals:['shitei','priv'],comment:'女子校。カトリック系で落ち着いた環境。指定校推薦が充実。'},
+  {name:'松商学園',course:'特進コース',dev:59,minScore:null,area:'chu',type:'priv',zenki:true,goals:['kokuritu','bukatsu','priv'],comment:'中信の主要私立。SSH指定校。野球・バレーなど部活が強い。入学者の9割が推薦。'},
+  {name:'文化学園長野',course:'特進コース',dev:54,minScore:null,area:'hoku',type:'priv',zenki:true,goals:['shitei','priv','stable'],comment:'内申重視の推薦で入りやすい。私立の「滑り止め確保」として人気。'},
+  {name:'松商学園',course:'文理コース',dev:54,minScore:null,area:'chu',type:'priv',zenki:true,goals:['shitei','priv','bukatsu'],comment:'推薦で早期確定しやすい。野球など部活充実。'},
+  {name:'長野清泉女学院',course:'進学コース',dev:52,minScore:null,area:'hoku',type:'priv',zenki:true,goals:['shitei','priv','stable'],comment:'女子校。指定校推薦が豊富。推薦での早期確保が有力。'},
+  {name:'上田西',course:'特進コース',dev:56,minScore:null,area:'tou',type:'priv',zenki:true,goals:['priv','kokuritu'],comment:'東信唯一の主要共学私立。推薦の競争率が高め。'},
+  {name:'松商学園',course:'総合コース',dev:51,minScore:null,area:'chu',type:'priv',zenki:true,goals:['stable','bukatsu','priv'],comment:'多様な進路に対応。推薦で入りやすい。'},
+];
+
+function runSimulator(){
+  const vals = ['s_kokugo','s_sugaku','s_eigo','s_rika','s_shakai'].map(id=>{
+    const v = parseInt(document.getElementById(id).value);
+    return isNaN(v)?null:v;
+  });
+  const naishin = parseInt(document.getElementById('s_naishin').value)||0;
+  const resultArea = document.getElementById('result-area');
+  resultArea.style.display='block';
+
+  if(vals.some(v=>v===null)){
+    resultArea.innerHTML='<div class="error-msg">⚠ 5教科すべての点数を入力してください</div>';
+    resultArea.scrollIntoView({behavior:'smooth',block:'nearest'});
+    return;
+  }
+  if(vals.some(v=>v<0||v>100)){
+    resultArea.innerHTML='<div class="error-msg">⚠ 点数は0〜100の範囲で入力してください</div>';
+    return;
+  }
+
+  const total = vals.reduce((a,b)=>a+b,0);
+  const selectedAreas = getSelected('area');
+  const selectedGoals = getSelected('goal');
+  const inclPriv = selectedGoals.includes('priv');
+
+  // スコア推計（定期テスト→後期本番は概ね+10〜20点の補正が一般的）
+  const estScore = Math.min(total, 500);
+  // 内申補正（内申が高いほど多少スコア低くても可）
+  const naishinBonus = Math.max(0, (naishin - 25)) * 1.5;
+  const effectiveScore = estScore + naishinBonus;
+
+  // フィルタリング・スコアリング
+  let candidates = SCHOOLS.filter(s=>{
+    if(!inclPriv && s.type==='priv') return false;
+    if(selectedAreas.length>0 && !selectedAreas.includes(s.area)) return false;
+    return true;
+  });
+
+  // 各高校にスコアマッチング
+  candidates = candidates.map(s=>{
+    const threshold = s.minScore||((s.dev-50)*4+300);
+    const gap = effectiveScore - threshold;
+    const goalMatch = selectedGoals.length===0 ? 1 : selectedGoals.filter(g=>s.goals.includes(g)).length;
+    // gap: 0〜20 = 狙い目, 20〜50 = 余裕, -30〜0 = 届くか微妙, <-30 = 厳しい
+    let category, score;
+    if(gap>=30){category='余裕圏';score=goalMatch*10+5;}
+    else if(gap>=5){category='狙い目';score=goalMatch*10+10;}
+    else if(gap>=-25){category='チャレンジ';score=goalMatch*10+8;}
+    else{category='厳しい';score=goalMatch*3;}
+    return {...s, gap, category, score, threshold};
+  }).sort((a,b)=>b.score-a.score||Math.abs(a.gap)-Math.abs(b.gap));
+
+  // 理想の3校: チャレンジ1校 + 狙い目1校 + 余裕圏1校 (ゴールマッチ優先)
+  const challenge = candidates.filter(s=>s.category==='チャレンジ'||s.category==='狙い目').sort((a,b)=>b.score-a.score)[0];
+  const aim = candidates.filter(s=>s.category==='狙い目'||s.category==='余裕圏').sort((a,b)=>b.score-a.score)[0];
+  const safe = candidates.filter(s=>s.category==='余裕圏').sort((a,b)=>b.score-a.score)[0];
+
+  let picks = [challenge, aim, safe].filter(Boolean);
+  // 重複除去
+  const seen = new Set();
+  picks = picks.filter(s=>{
+    const key = s.name+s.course;
+    if(seen.has(key)) return false;
+    seen.add(key); return true;
+  });
+  // 3校に満たない場合は補完
+  if(picks.length<3){
+    const more = candidates.filter(s=>!picks.find(p=>p.name===s.name&&p.course===s.course));
+    picks = [...picks, ...more].slice(0,3);
+  }
+
+  const rankLabels=['1st','2nd','3rd'];
+  const rankColors=['rank-1','rank-2','rank-3'];
+  const catLabel={チャレンジ:'🔥チャレンジ校',狙い目:'🎯狙い目',余裕圏:'🛡安全圏'};
+  const catClass={チャレンジ:'rt-aim',狙い目:'rt-reach',余裕圏:'rt-reach'};
+
+  let html = `<div class="result-title">📊 あなたの入力結果</div>
+  <div class="total-score-disp">5教科合計：<span>${total}</span>点 / 500点　内申点：<strong>${naishin||'未入力'}</strong></div>
+  <div class="result-title">🏆 おすすめ高校 TOP3</div>`;
+
+  picks.slice(0,3).forEach((s,i)=>{
+    const typeTag = s.type==='pub'?'<span class="result-tag rt-pub">公立</span>':'<span class="result-tag rt-priv">私立</span>';
+    const catTag = s.category?`<span class="result-tag ${catClass[s.category]||'rt-reach'}">${catLabel[s.category]||s.category}</span>`:'';
+    const zenkiTag = s.zenki?'<span class="result-tag rt-reach">前期あり</span>':'<span class="result-tag rt-aim">後期のみ</span>';
+    const areaLabel = {hoku:'北信',tou:'東信',chu:'中信'}[s.area]||s.area;
+    html += `<div class="result-card">
+      <div class="result-rank-badge ${rankColors[i]}">${rankLabels[i]}</div>
+      <div class="result-body">
+        <div class="result-school-name">${s.name}</div>
+        <div class="result-school-course">${s.course}　<span style="font-size:10px;color:var(--mid);">${areaLabel}</span></div>
+        <div style="display:flex;gap:10px;align-items:center;margin:4px 0;">
+          <span class="result-dev ${s.type==='priv'?'pr':''}">${s.dev}</span>
+          <span class="score-display">偏差値　合格ライン目安：${s.minScore||Math.round((s.dev-50)*4+300)}点前後</span>
+        </div>
+        <div class="result-tags">${typeTag}${catTag}${zenkiTag}</div>
+        <div class="result-comment">${s.comment}</div>
+      </div>
+    </div>`;
+  });
+
+  if(picks.length===0){
+    html+='<div class="error-msg">条件に合う高校が見つかりませんでした。条件を変えて再試行してください。</div>';
+  }
+
+  resultArea.innerHTML = html;
+  resultArea.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body>
+</html>
